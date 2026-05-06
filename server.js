@@ -30,6 +30,8 @@ app.get('/', async (req, res) => {
 
         if (!profile) {
             return res.status(404).send('Profile data not found in database.');
+        }
+
         // Hardcoded data for items not yet in tables (matching the initial PDF content)
         // You can add these to the database tables later if you want total control.
         const dynamicData = {
@@ -50,6 +52,9 @@ app.get('/', async (req, res) => {
                 instagram: profile.socials.instagram
             }
         };
+
+        res.render('index', { data: dynamicData });
+    } catch (err) {
         console.error('Error fetching data:', err.message);
         res.status(500).send('Internal Server Error');
     }
