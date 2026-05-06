@@ -30,8 +30,6 @@ app.get('/', async (req, res) => {
 
         if (!profile) {
             return res.status(404).send('Profile data not found in database.');
-        }
-
         // Hardcoded data for items not yet in tables (matching the initial PDF content)
         // You can add these to the database tables later if you want total control.
         const dynamicData = {
@@ -45,14 +43,13 @@ app.get('/', async (req, res) => {
                 { name: 'Monyet', count: 1, desc: 'agak aneh si tapi aira juga suka sama hewan hewan unik' }
             ],
             dislikes: [
-                'Ditinggal tiba-tiba (saat chat)',
-                'Cowo yang suka liat cewe random di sosmed',
-                'Cowo yang suka follow/like cewe random atau simpen video cewe geol'
-            ]
+                'Ditinggal tiba-tiba (saat chat)'
+            ],
+            socials: {
+                tiktok: profile.socials.tiktok,
+                instagram: profile.socials.instagram
+            }
         };
-
-        res.render('index', { data: dynamicData });
-    } catch (err) {
         console.error('Error fetching data:', err.message);
         res.status(500).send('Internal Server Error');
     }
