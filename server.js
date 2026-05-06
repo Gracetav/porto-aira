@@ -1,29 +1,16 @@
 const express = require('express');
 const path = require('path');
-const { Pool } = require('pg');
+const { createClient } = require('@supabase/supabase-js');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Database Connection Validation
-const rawUrl = process.env.DATABASE_URL || '';
-const databaseUrl = rawUrl.trim();
-
-// Diagnostic logging (safely)
-if (databaseUrl) {
-    console.log('DATABASE_URL length:', databaseUrl.length);
-    console.log('DATABASE_URL starts with:', databaseUrl.substring(0, 15) + '...');
-} else {
-    console.error('CRITICAL: DATABASE_URL is EMPTY in environment variables!');
-}
-
-const pool = new Pool({
-    connectionString: databaseUrl,
-    ssl: {
-        rejectUnauthorized: false
-    }
-});
+// Supabase Connection
+const supabase = createClient(
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_ANON_KEY
+);
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
@@ -35,16 +22,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Routes
 app.get('/', async (req, res) => {
     try {
-        // Fetch basic profile
-        const profileRes = await pool.query('SELECT * FROM public.profile LIMIT 1');
-        const profile = profileRes.rows[0];
+        // Fetch basic profile using Supabase SDK
+        const { data: profile, error } = await supabase
+            .from('profile')
+            .select('*')
+            .single();
 
-        if (!profile) {
+        if (error || !profile) {
+            console.error('Supabase error:', error);
             return res.status(404).send('Profile data not found in database.');
         }
 
-        // Hardcoded data for items not yet in tables (matching the initial PDF content)
-        // You can add these to the database tables later if you want total control.
+        // Hardcoded data for items not yet in tables
         const dynamicData = {
             ...profile,
             hobbies: ['Makeup', 'Dengerin Musik', 'Menggambar'],
@@ -64,7 +53,7 @@ app.get('/', async (req, res) => {
 
         res.render('index', { data: dynamicData });
     } catch (err) {
-        console.error('Error fetching data:', err.message);
+        console.error('Internal Error:', err.message);
         res.status(500).send('Internal Server Error');
     }
 });
