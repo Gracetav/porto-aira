@@ -20,6 +20,17 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
+app.get('/debug-images', (req, res) => {
+    const fs = require('fs');
+    const imagesDir = path.join(__dirname, 'public', 'images');
+    try {
+        const files = fs.readdirSync(imagesDir);
+        res.json({ dir: imagesDir, files });
+    } catch (err) {
+        res.json({ error: err.message, dir: imagesDir });
+    }
+});
+
 app.get('/', async (req, res) => {
     try {
         // Fetch basic profile using Supabase SDK
