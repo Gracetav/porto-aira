@@ -7,7 +7,44 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/output.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        beige: {
+                            light: '#FAF6F0',
+                            default: '#F5F5DC',
+                        },
+                        brown: {
+                            dark: '#4A3022',
+                        },
+                        pink: {
+                            soft: '#FFB6C1',
+                            dusty: '#D8A7B1',
+                        }
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply font-poppins bg-[#FAF6F0] text-[#4A3022];
+            }
+        }
+        .card {
+            @apply bg-white p-6 rounded-2xl shadow-sm border border-[#FFB6C1]/30 hover:border-[#FFB6C1] transition-all;
+        }
+        .title-accent {
+            @apply text-[#D8A7B1] font-bold text-2xl mb-4;
+        }
+    </style>
 </head>
 <body class="bg-beige-light selection:bg-pink-soft selection:text-brown-dark">
 
