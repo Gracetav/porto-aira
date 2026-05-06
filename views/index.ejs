@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Aira Maudy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/output.css">
+</head>
+<body class="bg-beige-light selection:bg-pink-soft selection:text-brown-dark">
+
+    <!-- Header / Navbar -->
+    <nav class="fixed top-0 w-full bg-beige-light/80 backdrop-blur-md z-50 border-b border-pink-soft/20">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-brown-dark font-bold text-xl tracking-tighter">AIRA<span class="text-pink-dusty">.</span></div>
+            <div class="flex gap-8 text-sm font-medium">
+                <a href="#about" class="hover:text-pink-dusty transition-colors">About</a>
+                <a href="#skills" class="hover:text-pink-dusty transition-colors">Skills</a>
+                <a href="#hobbies" class="hover:text-pink-dusty transition-colors">Hobbies</a>
+                <a href="#contact" class="hover:text-pink-dusty transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="flex-1 text-center md:text-left">
+                <h2 class="text-pink-dusty font-semibold mb-2 tracking-widest uppercase text-sm">Creative Portfolio</h2>
+                <h1 class="text-5xl md:text-7xl font-bold text-brown-dark mb-6 leading-tight">
+                    Creative <br> <span class="text-pink-soft underline decoration-pink-dusty/30">About me</span>
+                </h1>
+                <p class="text-lg text-brown-dark/70 mb-8 max-w-lg">
+                    By. <span class="font-semibold text-brown-dark"><%= data.name %></span>
+                </p>
+                <div class="flex gap-4 justify-center md:justify-start">
+                    <a href="#contact" class="bg-brown-dark text-white px-8 py-3 rounded-full hover:bg-pink-dusty transition-all shadow-lg shadow-brown-dark/10">Say Hello</a>
+                    <a href="#about" class="border border-pink-soft text-brown-dark px-8 py-3 rounded-full hover:bg-pink-soft/10 transition-all">My Story</a>
+                </div>
+            </div>
+            <div class="flex-1 relative">
+                <div class="w-72 h-96 bg-pink-soft/20 rounded-3xl absolute -rotate-6 -z-10 -top-4 -left-4 border-2 border-pink-soft/30"></div>
+                <div class="w-72 h-96 bg-white overflow-hidden rounded-3xl border-8 border-white shadow-2xl shadow-pink-soft/20 mx-auto">
+                    <!-- Placeholder for image -->
+                    <div class="w-full h-full bg-beige-default flex items-center justify-center text-brown-dark/20 italic">
+                        Photo of Aira
+                    </div>
+                </div>
+                <div class="w-72 h-96 bg-beige-default rounded-3xl absolute rotate-3 -z-20 -bottom-4 -right-4 border border-brown-dark/10"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h3 class="title-accent uppercase tracking-widest text-sm mb-8">Who am I?</h3>
+            <p class="text-2xl md:text-3xl text-brown-dark leading-relaxed mb-10 font-light italic">
+                "<%= data.description %>"
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                <div class="card bg-beige-light/30">
+                    <h4 class="font-bold text-lg mb-2 text-pink-dusty">The "Sleepy" Side</h4>
+                    <p class="text-brown-dark/80 text-sm leading-relaxed">
+                        <%= data.personality %>
+                    </p>
+                </div>
+                <div class="card bg-pink-soft/5">
+                    <h4 class="font-bold text-lg mb-2 text-pink-dusty">Education</h4>
+                    <p class="text-brown-dark/80 text-sm leading-relaxed">
+                        Currently in <strong><%= data.grade %></strong> majoring in <br>
+                        <span class="text-brown-dark"><%= data.major %></span>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+                <div>
+                    <h3 class="title-accent uppercase tracking-widest text-sm mb-2">Technical Ability</h3>
+                    <h2 class="text-4xl font-bold text-brown-dark">What I can do.</h2>
+                </div>
+                <p class="text-brown-dark/60 max-w-xs text-sm italic">
+                    Building digital experiences with code and creativity.
+                </p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="card text-center group">
+                    <div class="w-12 h-12 bg-pink-soft/20 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:bg-pink-soft transition-colors">
+                        <span class="text-brown-dark font-bold">W</span>
+                    </div>
+                    <h4 class="font-bold">WordPress</h4>
+                </div>
+                <div class="card text-center group">
+                    <div class="w-12 h-12 bg-pink-soft/20 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:bg-pink-soft transition-colors">
+                        <span class="text-brown-dark font-bold">H</span>
+                    </div>
+                    <h4 class="font-bold">HTML + CSS</h4>
+                </div>
+                <div class="card text-center group">
+                    <div class="w-12 h-12 bg-pink-soft/20 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:bg-pink-soft transition-colors">
+                        <span class="text-brown-dark font-bold">JS</span>
+                    </div>
+                    <h4 class="font-bold">JavaScript</h4>
+                </div>
+                <div class="card text-center group">
+                    <div class="w-12 h-12 bg-pink-soft/20 rounded-xl mx-auto mb-4 flex items-center justify-center group-hover:bg-pink-soft transition-colors">
+                        <span class="text-brown-dark font-bold">L</span>
+                    </div>
+                    <h4 class="font-bold">Laravel</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Favorites & Hobbies Section -->
+    <section id="hobbies" class="py-20 bg-brown-dark text-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <h3 class="text-pink-soft font-bold text-2xl mb-6">Apa aja hobi aira?</h3>
+                    <ul class="space-y-4">
+                        <% data.hobbies.forEach(hobby => { %>
+                            <li class="flex items-center gap-3">
+                                <span class="w-1.5 h-1.5 bg-pink-soft rounded-full"></span>
+                                <%= hobby %>
+                            </li>
+                        <% }) %>
+                    </ul>
+                    <p class="mt-8 text-white/50 text-sm italic">
+                        "pasti sambilan dengerin musik: <%= data.music.join(', ') %>"
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-pink-soft font-bold text-2xl mb-6">Makanan & Minuman</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-sm uppercase tracking-widest text-white/40 mb-2">Fav Foods</h4>
+                            <p class="text-lg leading-relaxed"><%= data.foods.join(', ') %></p>
+                        </div>
+                        <div>
+                            <h4 class="text-sm uppercase tracking-widest text-white/40 mb-2">Fav Drinks</h4>
+                            <p class="text-lg leading-relaxed"><%= data.drinks.join(', ') %></p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-pink-soft font-bold text-2xl mb-6">Hewan Unik</h3>
+                    <div class="space-y-4">
+                        <% data.pets.forEach(pet => { %>
+                            <div class="bg-white/5 p-4 rounded-xl border border-white/10">
+                                <h4 class="font-bold"><%= pet.name %> (<%= pet.count %>)</h4>
+                                <p class="text-xs text-white/60"><%= pet.desc %></p>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dislikes / Pet Peeves -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <h3 class="title-accent text-center">Hal yang aira gasuka.</h3>
+            <div class="space-y-4">
+                <% data.dislikes.forEach(dislike => { %>
+                    <div class="bg-pink-soft/10 p-4 rounded-xl text-center border border-pink-soft/20 text-brown-dark/80">
+                        <%= dislike %>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-beige-default">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-4xl font-bold mb-4">Let's be friends!</h2>
+            <p class="text-brown-dark/60 mb-12 italic">Hubungi Aira lewat media sosial di bawah ini ya..</p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="https://tiktok.com/<%= data.socials.tiktok %>" class="bg-white px-8 py-4 rounded-2xl shadow-sm hover:shadow-md transition-all flex items-center gap-3 group">
+                    <span class="font-bold group-hover:text-pink-dusty">TikTok</span>
+                    <span class="text-brown-dark/40"><%= data.socials.tiktok %></span>
+                </a>
+                <a href="https://instagram.com/<%= data.socials.instagram.replace('@', '') %>" class="bg-white px-8 py-4 rounded-2xl shadow-sm hover:shadow-md transition-all flex items-center gap-3 group">
+                    <span class="font-bold group-hover:text-pink-dusty">Instagram</span>
+                    <span class="text-brown-dark/40"><%= data.socials.instagram %></span>
+                </a>
+                <a href="https://wa.me/<%= data.socials.whatsapp %>" class="bg-white px-8 py-4 rounded-2xl shadow-sm hover:shadow-md transition-all flex items-center gap-3 group">
+                    <span class="font-bold group-hover:text-pink-dusty">WhatsApp</span>
+                    <span class="text-brown-dark/40"><%= data.socials.whatsapp %></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center text-xs text-brown-dark/30">
+        &copy; 2026 Aira Maudy. Built with Node.js & Tailwind CSS.
+    </footer>
+
+    <!-- Simple Scroll Animation -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

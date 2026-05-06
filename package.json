@@ -1,0 +1,35 @@
+{
+  "name": "porto-aira",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build:css": "tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch",
+    "prod:css": "tailwindcss -i ./public/css/input.css -o ./public/css/output.css --minify"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gracetav/porto-aira.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Gracetav/porto-aira/issues"
+  },
+  "homepage": "https://github.com/Gracetav/porto-aira#readme",
+  "dependencies": {
+    "ejs": "^5.0.2",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.4",
+    "autoprefixer": "^10.5.0",
+    "nodemon": "^3.1.14",
+    "postcss": "^8.5.14",
+    "tailwindcss": "^4.2.4"
+  }
+}

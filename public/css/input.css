@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --font-poppins: "Poppins", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --color-beige-light: #FAF6F0;
+  --color-beige-default: #F5F5DC;
+  --color-brown-dark: #4A3022;
+  --color-pink-soft: #FFB6C1;
+  --color-pink-dusty: #D8A7B1;
+}
+
+@layer base {
+  body {
+    @apply font-poppins bg-beige-light text-brown-dark;
+  }
+}
+
+.card {
+  @apply bg-white p-6 rounded-2xl shadow-sm border border-pink-soft/30 hover:border-pink-soft transition-all;
+}
+
+.title-accent {
+  @apply text-pink-dusty font-bold text-2xl mb-4;
+}
