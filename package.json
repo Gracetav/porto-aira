@@ -22,8 +22,10 @@
   },
   "homepage": "https://github.com/Gracetav/porto-aira#readme",
   "dependencies": {
+    "dotenv": "^17.4.2",
     "ejs": "^5.0.2",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "pg": "^8.20.0"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.2.4",
