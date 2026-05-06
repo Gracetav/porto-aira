@@ -7,10 +7,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Database Connection Validation
-const databaseUrl = process.env.DATABASE_URL ? process.env.DATABASE_URL.trim() : null;
+const rawUrl = process.env.DATABASE_URL || '';
+const databaseUrl = rawUrl.trim();
 
-if (!databaseUrl) {
-    console.error('CRITICAL: DATABASE_URL is not defined in environment variables!');
+// Diagnostic logging (safely)
+if (databaseUrl) {
+    console.log('DATABASE_URL length:', databaseUrl.length);
+    console.log('DATABASE_URL starts with:', databaseUrl.substring(0, 15) + '...');
+} else {
+    console.error('CRITICAL: DATABASE_URL is EMPTY in environment variables!');
 }
 
 const pool = new Pool({
