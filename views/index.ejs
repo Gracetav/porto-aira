@@ -54,9 +54,17 @@
             -webkit-user-drag: none;
             -webkit-touch-callout: none; /* Disable long-press menu on iOS/Android */
         }
+        /* Anti-Print & Anti-Capture during print */
+        @media print {
+            body { display: none !important; }
+        }
     </style>
 </head>
-<body class="bg-beige-light selection:bg-pink-soft selection:text-brown-dark" oncontextmenu="return false;">
+<body class="bg-beige-light selection:bg-pink-soft selection:text-brown-dark transition-all duration-500" oncontextmenu="return false;">
+
+    <div id="blur-overlay" class="fixed inset-0 z-[100] backdrop-blur-3xl bg-beige-light/30 hidden items-center justify-center text-brown-dark font-bold text-xl text-center p-10 pointer-events-none">
+        Tampilan disembunyikan untuk keamanan.<br>Silakan fokus kembali ke halaman ini.
+    </div>
 
     <!-- Header / Navbar -->
     <nav class="fixed top-0 w-full bg-beige-light/80 backdrop-blur-md z-50 border-b border-pink-soft/20">
@@ -275,8 +283,9 @@
         &copy; 2026 Aira Maudy. Built with Node.js & Tailwind CSS.
     </footer>
 
-    <!-- Simple Scroll Animation -->
+    <!-- Security Scripts -->
     <script>
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -284,6 +293,29 @@
                     behavior: 'smooth'
                 });
             });
+        });
+
+        // Anti-Focus / Blur Protection
+        const overlay = document.getElementById('blur-overlay');
+        
+        window.addEventListener('blur', () => {
+            overlay.classList.remove('hidden');
+            overlay.classList.add('flex');
+            document.body.classList.add('overflow-hidden');
+        });
+
+        window.addEventListener('focus', () => {
+            overlay.classList.add('hidden');
+            overlay.classList.remove('flex');
+            document.body.classList.remove('overflow-hidden');
+        });
+
+        // Detect Print Screen Key (Limited effectiveness but good for psychological deterrence)
+        window.addEventListener('keyup', (e) => {
+            if (e.key === 'PrintScreen') {
+                navigator.clipboard.writeText('Screenshots are disabled for privacy.');
+                alert('Screenshot terdeteksi. Mohon hargai privasi pemilik portofolio ini.');
+            }
         });
     </script>
 </body>
