@@ -78,17 +78,17 @@
                 </div>
             </div>
             <div class="flex-1 relative">
-                <!-- Frame 3 (Back) -->
+                <!-- Frame 3 (Back) - Image 3 -->
                 <div class="w-72 h-96 bg-beige-default rounded-3xl absolute rotate-6 -z-20 -bottom-8 -right-8 border border-brown-dark/10 overflow-hidden shadow-lg">
                     <img src="/images/WhatsApp Image 2026-05-06 at 17.17.26 (1).jpeg" alt="Aira Maudy" class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
                 </div>
                 
-                <!-- Frame 2 (Middle) -->
+                <!-- Frame 2 (Middle) - Image 2 -->
                 <div class="w-72 h-96 bg-pink-soft/20 rounded-3xl absolute -rotate-6 -z-10 -top-6 -left-6 border-2 border-pink-soft/30 overflow-hidden shadow-xl">
                     <img src="/images/WhatsApp Image 2026-05-06 at 17.17.25 (2).jpeg" alt="Aira Maudy" class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-all duration-500">
                 </div>
                 
-                <!-- Frame 1 (Front) -->
+                <!-- Frame 1 (Front) - Image 1 -->
                 <div class="w-72 h-96 bg-white overflow-hidden rounded-3xl border-8 border-white shadow-2xl shadow-pink-soft/30 mx-auto relative z-10">
                     <img src="/images/WhatsApp Image 2026-05-06 at 17.17.25 (1).jpeg" alt="Aira Maudy" class="w-full h-full object-cover">
                 </div>
@@ -110,9 +110,10 @@
                         <%= data.personality %>
                     </p>
                     <div class="grid grid-cols-3 gap-2">
-                        <img src="/images/WhatsApp Image 2026-05-06 at 17.17.26.jpeg" class="rounded-lg h-20 w-full object-cover">
-                        <img src="/images/WhatsApp Image 2026-05-06 at 17.17.26 (2).jpeg" class="rounded-lg h-20 w-full object-cover">
-                        <img src="/images/WhatsApp Image 2026-05-06 at 17.17.26 (3).jpeg" class="rounded-lg h-20 w-full object-cover">
+                        <!-- Unique Images 4, 5, 6 for Sleepy Side -->
+                        <img src="/images/WhatsApp Image 2026-05-06 at 17.17.26.jpeg" class="rounded-lg h-20 w-full object-cover shadow-sm">
+                        <img src="/images/WhatsApp Image 2026-05-06 at 17.17.26 (2).jpeg" class="rounded-lg h-20 w-full object-cover shadow-sm">
+                        <img src="/images/WhatsApp Image 2026-05-06 at 17.17.26 (3).jpeg" class="rounded-lg h-20 w-full object-cover shadow-sm">
                     </div>
                 </div>
                 <div class="card bg-pink-soft/5">
@@ -121,7 +122,8 @@
                         Currently in <strong><%= data.grade %></strong> majoring in 
                         <span class="text-brown-dark"><%= data.major %></span>.
                     </p>
-                    <img src="/images/WhatsApp Image 2026-05-06 at 17.17.25 (2).jpeg" class="rounded-xl h-32 w-full object-cover shadow-sm">
+                    <!-- Re-using one of the clearer images for Education profile, ensuring it looks distinct in this layout -->
+                    <img src="/images/WhatsApp Image 2026-05-06 at 17.17.25 (1).jpeg" class="rounded-xl h-32 w-full object-cover shadow-sm brightness-110">
                 </div>
             </div>
         </div>
