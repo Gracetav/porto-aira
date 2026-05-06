@@ -44,9 +44,7 @@ app.get('/', async (req, res) => {
                 { name: 'Kucing', count: 5, desc: 'tidur aja sama 5 kucing di kamarnya' },
                 { name: 'Monyet', count: 1, desc: 'agak aneh si tapi aira juga suka sama hewan hewan unik' }
             ],
-            dislikes: [
-                'Ditinggal tiba-tiba (saat chat)'
-            ],
+            dislikes: [],
             socials: {
                 tiktok: profile.socials.tiktok,
                 instagram: profile.socials.instagram
