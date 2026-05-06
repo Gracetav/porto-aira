@@ -6,9 +6,15 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Database Connection
+// Database Connection Validation
+const databaseUrl = process.env.DATABASE_URL ? process.env.DATABASE_URL.trim() : null;
+
+if (!databaseUrl) {
+    console.error('CRITICAL: DATABASE_URL is not defined in environment variables!');
+}
+
 const pool = new Pool({
-    connectionString: process.env.DATABASE_URL,
+    connectionString: databaseUrl,
     ssl: {
         rejectUnauthorized: false
     }
